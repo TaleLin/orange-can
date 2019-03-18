@@ -11,7 +11,7 @@ page{
 .avatar{
     width:200rpx;
     height:200rpx;
-    margin-top:160rpx;
+    margin-top:260rpx;
 }
 
 .motto{
