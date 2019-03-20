@@ -14,7 +14,7 @@
 
 
   <block wx:for="{{postList}}" wx:for-item="item" wx:for-index="idx">
-    <template is="postItemTpl" data="{{item}}" />
+    <template is="postItemTpl" data="{{...item}}" />
   </block>
 
 </view>
