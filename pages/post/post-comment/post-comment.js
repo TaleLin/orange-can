@@ -4,8 +4,7 @@ import {
 
 Page({
   data: {
-    useKeyboardFlag: true,
-    showMedia: false,
+    useKeyboardFlag: true
   },
   onLoad: function(options) {
     var postId = options.id;
@@ -86,6 +85,5 @@ Page({
     this.setData({
       keyboardInputValue: ''
     });
-    this.resetImgs()
   },
 })
