@@ -1,0 +1,58 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.6.2",
+	"appid": "wx83c70918786b8d5f",
+	"projectname": "Orange-Can",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": -1,
+					"name": "post-detail",
+					"pathName": "pages/post/post-detail/post-detail",
+					"query": "id=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "post-comment",
+					"pathName": "pages/post/post-comment/post-comment",
+					"query": "id=2",
+					"scene": null
+				}
+			]
+		}
+	}
+}

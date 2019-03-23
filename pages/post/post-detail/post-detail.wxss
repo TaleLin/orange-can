@@ -1,0 +1,81 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.head-image {
+  width: 750rpx;
+  height: 460rpx;
+}
+
+.title {
+  font-size: 20px;
+  margin: 30rpx;
+  letter-spacing: 2px;
+  color: #4b556c;
+}
+
+.author-date {
+  display: flex;
+  flex-direction: row;
+  margin-top: 15rpx;
+  margin-left: 30rpx;
+  align-items: center;
+  justify-content: space-between;
+  font-size:13px;
+}
+
+.author-box {
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.avatar {
+  height: 50rpx;
+  width: 50rpx;
+}
+
+.author {
+  font-weight: 300;
+  margin-left: 20rpx;
+  color: #666;
+}
+
+.date {
+  color: #919191;
+  margin-right: 38rpx;
+}
+
+
+.detail {
+  color: #666;
+  margin: 40rpx 22rpx 0;
+  line-height: 44rpx;
+  letter-spacing: 1px;
+  font-size:14px;
+}
+
+.tool{
+  height: 64rpx;
+  text-align: center;
+  line-height: 64rpx;
+  margin: 20rpx 28rpx 20rpx 0;
+}
+.tool-item{
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 30rpx;
+}
+
+.tool-item image{
+  height: 30rpx;
+  width:30rpx;
+  vertical-align: -3px;
+  margin-right: 10rpx;
+}
+
+.comment image{
+  transform: scale(.85);
+}
+

@@ -1,0 +1,50 @@
+<view class="comment-detail-box">
+  <view class="comment-main-box">
+    <view class="comment-title">评论………（共{{comments.length}}条）</view>
+    <block wx:for="{{comments}}" wx:for-item="item" wx:for-index="idx">
+      <view class="comment-item">
+        <view class="comment-item-header">
+          <view class="left-img">
+            <image src="{{item.avatar}}"></image>
+          </view>
+          <view class="right-user">
+            <text class="user-name">{{item.username}}</text>
+          </view>
+        </view>
+        <view class="comment-body">
+          <view class="comment-txt" wx:if="{{item.content.txt}}">
+            <text>{{item.content.txt}}</text>
+          </view>
+          <view class="comment-voice" wx:if="{{item.content.audio && item.content.audio.url}}">
+            <view data-url="{{item.content.audio.url}}" class="comment-voice-item" catchtap="playAudio">
+              <image src="/images/icon/wx_app_voice.png" class="voice-play"></image>
+              <text>{{item.content.audio.timeLen}}''</text>
+            </view>
+          </view>
+          <view class="comment-img" wx:if="{{item.content.img.length!=0}}">
+            <block wx:for="{{item.content.img}}" wx:for-item="img" wx:for-index="imgIdx">
+              <image src="{{img}}" mode="aspectFill" catch:tap="previewImg" data-comment-idx="{{idx}}" data-img-idx="{{imgIdx}}"></image>
+            </block>
+          </view>
+        </view>
+        <view class="comment-time">{{item.create_time}}</view>
+      </view>
+    </block>
+  </view>
+
+  <view class="input-box">
+    <view class="send-msg-box">
+      <view hidden="{{useKeyboardFlag}}" class="input-item">
+        <image src="/images/icon/wx_app_keyboard.png" class="comment-icon keyboard-icon" catchtap="switchInputType"></image>
+        <input class="input speak-input {{recodingClass}}" value="按住 说话" disabled="disabled" catchtouchstart="recordStart" catchtouchend="recordEnd" />
+      </view>
+      <view hidden="{{!useKeyboardFlag}}" class="input-item">
+        <image class="comment-icon speak-icon" src="/images/icon/wx_app_speak.png" catchtap="switchInputType"></image>
+        <input class="input keyboard-input" value="{{keyboardInputValue}}" bindconfirm="submitComment" bindinput="bindCommentInput" placeholde="说点什么吧……" />
+      </view>
+      <image class="comment-icon add-icon" src="/images/icon/wx_app_add.png" catchtap="showMedia"></image>
+      <view class="submit-btn" catchtap="submitComment">发送</view>
+    </view>
+
+  </view>
+</view>
