@@ -10,4 +10,10 @@ Page({
       post: this.postData
     })
   },
+
+  onReady: function () {
+    wx.setNavigationBarTitle({
+      title: this.postData.title
+    })
+  }
 })
