@@ -7,12 +7,11 @@ Page({
     useKeyboardFlag: true,
     showMediaFlag: false,
     choosedImgs: [],
-    // currentAudio: ''
   },
   onLoad: function(options) {
     var postId = options.id;
     this.dbPost = new DBPost(postId);
-    var comments = this.dbPost.getCommentData();
+    var comments = this.dbPost.getCommentData()
 
     this.initRecordMgr()
     this.initAudioMgr()
@@ -31,7 +30,8 @@ Page({
       //获取图片在图片数组中的序号
       imgIdx = event.currentTarget.dataset.imgIdx,
       //获取评论的全部图片
-      imgs = this.data.comments[commentIdx].content.img;
+      imgs = this.data.comments[commentIdx].content.img
+
     wx.previewImage({
       current: imgs[imgIdx], // 当前显示图片的http链接
       urls: imgs // 需要预览的图片http链接列表
@@ -43,8 +43,8 @@ Page({
     })
   },
   bindCommentInput: function(event) {
-    var val = event.detail.value;
-    this.data.keyboardInputValue = val;
+    var val = event.detail.value
+    this.data.keyboardInputValue = val
   },
   submitComment: function(event) {
     var newData = {
@@ -57,19 +57,19 @@ Page({
         txt: this.data.keyboardInputValue,
         img: this.data.choosedImgs
       },
-    };
+    }
     if (!newData.content.txt) {
       // 如果没有评论内容，就不执行任何操作
-      return;
+      return
     }
     //保存新评论到缓存数据库中
-    this.dbPost.newComment(newData);
+    this.dbPost.newComment(newData)
     //显示操作结果
-    this.showCommitSuccessToast();
+    this.showCommitSuccessToast()
     //重新渲染并绑定所有评论
-    this.bindCommentData();
+    this.bindCommentData()
     //恢复初始状态
-    this.resetAllDefaultStatus();
+    this.resetAllDefaultStatus()
   },
 
   showCommitSuccessToast: function() {
@@ -86,7 +86,7 @@ Page({
     // 绑定评论数据
     this.setData({
       comments: comments
-    });
+    })
   },
 
   resetAllDefaultStatus: function() {
@@ -95,7 +95,7 @@ Page({
       keyboardInputValue: '',
       choosedImgs: [],
       showMediaFlag: false
-    });
+    })
   },
 
   showMedia: function() {
@@ -124,7 +124,7 @@ Page({
     this.rMgr.stop()
   },
 
-  initRecordMgr: function () {
+  initRecordMgr: function() {
     // 初始化录音管理器
     var rMgr = wx.getRecorderManager()
     this.rMgr = rMgr
@@ -134,13 +134,16 @@ Page({
 
     rMgr.onStop((res) => {
       console.log('stop record', res)
-      const { tempFilePath, duration } = res
+      const {
+        tempFilePath,
+        duration
+      } = res
 
       //发送录音
       this.submitVoiceComment({
         url: tempFilePath,
         timeLen: Math.ceil(duration / 1000)
-      });
+      })
     })
   },
 
@@ -158,16 +161,16 @@ Page({
     };
 
     //保存新评论到缓存数据库中
-    this.dbPost.newComment(newData);
+    this.dbPost.newComment(newData)
 
     //显示操作结果
-    this.showCommitSuccessToast();
+    this.showCommitSuccessToast()
 
     //重新渲染并绑定所有评论
-    this.bindCommentData();
+    this.bindCommentData()
   },
 
-  initAudioMgr:function(){
+  initAudioMgr: function() {
     // 初始化录音管理器
     var aMgr = wx.createInnerAudioContext()
     this.aMgr = aMgr
@@ -178,7 +181,7 @@ Page({
       this.playing = true
     })
 
-    aMgr.onEnded(()=>{
+    aMgr.onEnded(() => {
       console.log('ended play')
       this.playing = false
     })
@@ -194,11 +197,10 @@ Page({
 
     // 如果正在播放
     if (this.playing) {
-      if(url == this.aMgr.src){
+      if (url == this.aMgr.src) {
         // 如果url相同说明是结束播放
         this.aMgr.stop()
-      }
-      else{
+      } else {
         // 如果url不同则说明用户点了另外的音频
         // 需要立即播放新音频
         this.aMgr.src = url

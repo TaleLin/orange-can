@@ -48,6 +48,9 @@ class DBPost {
         postData.comments.push(comment);
         postData.commentNum++;
         break;
+      case 'reading':
+        postData.readingNum++;
+        break;
       default:
         break;
     }
@@ -98,6 +101,10 @@ class DBPost {
     } else {
       return 0;
     }
+  }
+
+  addReadingTimes() {
+    this.updatePostData('reading')
   }
 
 };

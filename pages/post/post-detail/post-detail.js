@@ -5,12 +5,13 @@ import {
 Page({
   data: {},
   onLoad: function(options) {
-    var postId = options.id;
-    this.dbPost = new DBPost(postId);
-    this.postData = this.dbPost.getPostItemById().data;
+    var postId = options.id
+    this.dbPost = new DBPost(postId)
+    this.postData = this.dbPost.getPostItemById().data
     this.setData({
       post: this.postData
     })
+    this.addReadingTimes()
   },
   onReady: function() {
     wx.setNavigationBarTitle({
@@ -42,5 +43,9 @@ Page({
       url: '../post-comment/post-comment?id=' + id
     })
   },
+
+  addReadingTimes: function () {
+    this.dbPost.addReadingTimes()
+  }
 
 })
