@@ -1,6 +1,22 @@
 class DBPost {
-  constructor(url) {
+  constructor(postId) {
     this.storageKeyName = 'postList';
+    this.postId = postId;
+  }
+
+  //获取指定id号的文章数据
+  getPostItemById() {
+    var postsData = this.getAllPostData();
+    var len = postsData.length;
+    for (var i = 0; i < len; i++) {
+      if (postsData[i].postId == this.postId) {
+        return {
+          // 当前文章在缓存数据库数组中的序号
+          index: i,
+          data: postsData[i]
+        }
+      }
+    }
   }
 
   //得到全部文章信息

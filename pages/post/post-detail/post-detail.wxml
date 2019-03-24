@@ -1,0 +1,12 @@
+<view class="container">
+  <image class="head-image" src="{{post.postImg}}"></image>
+  <text class="title">{{post.title}}</text>
+    <view class="author-date">
+      <view class="author-box">
+        <image class="avatar" src="{{post.avatar}}"></image>
+        <text class="author">{{post.author}}</text>
+      </view>
+      <text class="date">{{post.dateTime}}</text>
+    </view>
+    <text class="detail">{{post.detail}}</text>
+</view>
