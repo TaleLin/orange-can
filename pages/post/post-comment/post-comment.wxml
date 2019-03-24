@@ -45,6 +45,8 @@
       <image class="comment-icon add-icon" src="/images/icon/wx_app_add.png" catchtap="showMedia"></image>
       <view class="submit-btn" catchtap="submitComment">发送</view>
     </view>
-
+    <view hidden="{{!showMediaFlag}}">
+      <l-image-picker count="3" urls="{{choosedImgs}}" bind:linchange="getAllImgs" />
+    </view>
   </view>
 </view>

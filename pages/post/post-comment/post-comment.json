@@ -1,4 +1,5 @@
 {
   "usingComponents": {
+    "l-image-picker":"/lin-ui/image-picker/index"
   }
 }
