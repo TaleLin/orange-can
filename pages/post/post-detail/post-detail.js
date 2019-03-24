@@ -46,6 +46,6 @@ Page({
 
   addReadingTimes: function () {
     this.dbPost.addReadingTimes()
-  }
+  },
 
 })

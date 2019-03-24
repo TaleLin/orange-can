@@ -19,5 +19,12 @@
       <image wx:else src="/images/icon/wx_app_collect.png" />
       <text>{{post.collectionNum}}</text>
     </view>
+    <!-- <button open-type='share' >分享</button> -->
+
+
+    <l-button special="{{true}}" open-type="share">
+      <l-icon size="25" name="share" color="#4A6141" />
+    </l-button>
   </view>
+
 </view>
