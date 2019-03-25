@@ -1,7 +1,5 @@
 <view class="container">
     <image class="avatar" src="/images/avatar/avatar-1.png"></image>
     <text class="motto">Hello, 桔子罐头</text>
-    <view catch:tap='onTapJump' class="journey-container">
-        <text class="journey">开启小程序之旅</text>
-    </view>
+    <o-button text="开启小程序之旅" catch:tap = "onTapJump" />
 </view>

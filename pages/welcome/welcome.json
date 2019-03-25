@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "o-button":"/component/button/index"
+  },
   "navigationStyle": "custom"
 }

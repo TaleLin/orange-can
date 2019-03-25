@@ -1,0 +1,3 @@
+<view class="journey-container">
+  <text class="journey">{{content}}</text>
+</view>
