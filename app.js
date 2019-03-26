@@ -8,4 +8,6 @@ App({
       wx.setStorageSync('postList', dataObj.postList);
     }
   },
+  baseUrl:'http://t.yushu.im/',
+  appKey:'123'
 })
