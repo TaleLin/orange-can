@@ -36,5 +36,8 @@
         "selectedIconPath": "images/icon/wx_app_setting@HL.png"
       }
     ]
+  },
+  "usingComponents":{
+    "o-stars":"/component/stars/index"
   }
 }

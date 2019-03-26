@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "o-movie":"/component/movie/index",
+    "o-movie-list": "/component/movie-list/index"
+  }
 }

@@ -1,2 +1,7 @@
-<!--pages/movie/movie.wxml-->
-<text>pages/movie/movie.wxml</text>
+<o-stars stars="35" score="7.6"/>
+<o-movie score="8.8" stars="45" coverage-url="/images/movie/sunrise.png" title="爱在黎明破晓前"/>
+    <!-- score: 8.8,
+    stars: '45',
+    coverageUrl: '/images/movie/sunrise.png',
+    title: '爱在黎明破晓前' -->
+<!-- <o-movie-list /> -->
