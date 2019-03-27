@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "o-movie":"/component/movie/index",
+    "o-movie": "/component/movie/index",
     "o-movie-list": "/component/movie-list/index"
-  }
+  },
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "光 影"
 }

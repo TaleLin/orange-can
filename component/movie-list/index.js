@@ -23,7 +23,7 @@ Component({
     wx.request({
       url: url,
       success: (res) => {
-        this.processDoubanData(res.data)
+        this.processServerData(res.data)
       }
     })
   },
@@ -36,7 +36,7 @@ Component({
   },
 
   methods: {
-    processDoubanData: function(data) {
+    processServerData: function(data) {
       var movies = [];
 
       for (var idx in data.subjects) {
@@ -49,7 +49,7 @@ Component({
         var temp = {
           stars: subject.rating.stars,
           title: title,
-          average: subject.rating.average,
+          score: subject.rating.average,
           coverageUrl: subject.images.large,
           movieId: subject.id
         }

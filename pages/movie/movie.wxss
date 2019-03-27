@@ -1,1 +1,6 @@
-/* pages/movie/movie.wxss */
+.container {
+  background-color: #f2f2f2;
+}
+.movies-template {
+  margin-bottom: 30rpx;
+}
