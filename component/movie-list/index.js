@@ -1,10 +1,10 @@
-// import {config} from '../../config.js'
 var app = getApp()
 
 Component({
   properties: {
-    
+    catetoryTitle:String
   },
+
 
   attached:function(){
     var inTheatersUrl = app.baseUrl +
@@ -22,16 +22,10 @@ Component({
     })
   },
 
-  /**
-   * 组件的初始数据
-   */
   data: {
-
+    movies:[]
   },
 
-  /**
-   * 组件的方法列表
-   */
   methods: {
 
   }
