@@ -4,7 +4,7 @@
   <image wx:if="{{searchPanelShow}}" src="/images/icon/wx_app_xx.png" class="xx-img" catchtap="onCancelImgTap"></image>
 </view>
 
-<view class="container">
+<view class="container" wx:if="{{containerShow}}">
   <view class="movies-template">
    <o-movie-list movies="{{inTheatreMovies}}" category-title="正在热映" />
   </view>
@@ -18,7 +18,7 @@
 
 <view class="search-panel" wx:if="{{searchPanelShow}}">
   <view class="grid-container">
-    <block wx:for="{{movies}}">
+    <block wx:for="{{searchResult}}">
       <view class="single-view-container">
         <o-movie movie-id="{{item.movieId}}" score="{{item.score}}" stars="{{item.stars}}" coverage-url="{{item.coverageUrl}}" title="{{item.title}}" />
       </view>

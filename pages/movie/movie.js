@@ -6,7 +6,10 @@ Page({
   data: {
     top250Movies: [],
     inTheatreMovies: [],
-    commingSoonMovies: []
+    commingSoonMovies: [],
+    containerShow: true,
+    searchPanelShow: false,
+    searchResult: []
   },
 
   onLoad: function() {
@@ -40,5 +43,36 @@ Page({
       comingSoonMovies: movies
     });
   },
+
+  onBindFocus: function(event) {
+    this.setData({
+      containerShow: false,
+      searchPanelShow: true
+    })
+  },
+
+  onCancelImgTap: function(event) {
+    this.setData({
+      containerShow: true,
+      searchPanelShow: false,
+      searchResult: {},
+      inputValue: ''
+    })
+  },
+
+  onBindConfirm: function(event) {
+    var app = getApp()
+    var keyWord = event.detail.value;
+    var url = app.baseUrl +
+      "/v2/movie/search?q=" + keyWord;
+    http(url, this.processSearchResultData)
+  },
+
+  processSearchResultData: function(data) {
+    var movies = processServerMovies(data)
+    this.setData({
+      searchResult: movies
+    })
+  }
 
 })

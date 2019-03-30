@@ -1,4 +1,7 @@
-import {http, processServerMovies} from '../../../util/util.js'
+import {
+  http,
+  processServerMovies
+} from '../../../util/util.js'
 var app = getApp()
 
 Page({
@@ -23,14 +26,30 @@ Page({
         url = url + this.data.top250Url
         break
     }
+    this.data.currentUrl = url
 
     http(url, this.processMoreMovieData)
   },
 
   processMoreMovieData: function(data) {
     var movies = processServerMovies(data)
+    var totalMovies = this.data.movies.concat(movies);
     this.setData({
-      movies: movies
+      movies: totalMovies
     });
+    wx.stopPullDownRefresh();
   },
+
+  onPullDownRefresh: function(event) {
+    this.data.movies = []
+    http(this.data.currentUrl, this.processMoreMovieData)
+  },
+
+  onReachBottom: function(event) {
+    var totalCount = this.data.movies.length;
+    //拼接下一组数据的URL
+    var nextUrl = this.data.currentUrl +
+      "?start=" + totalCount + "&count=20";
+    http(nextUrl, this.processMoreMovieData)
+  }
 })

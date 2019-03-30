@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "o-movie":"/component/movie/index"
-  }
+  },
+  "enablePullDownRefresh": true
 }
