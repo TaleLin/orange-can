@@ -1,15 +1,11 @@
-<!-- <o-stars stars="35" score="7.6"/>
-<o-movie score="8.8" stars="45" coverage-url="/images/movie/sunrise.png" title="爱在黎明破晓前"/>
-<o-movie-list category-title="Top250" /> -->
-
 <view class="container">
   <view class="movies-template">
-   <o-movie-list category-title="正在热映" />
+   <o-movie-list movies={{inTheatreMovies}} category-title="正在热映" />
   </view>
   <view class="movies-template">
-     <o-movie-list category-title="即将上映" />
+     <o-movie-list movies={{comingSoonMovies}} category-title="即将上映" />
   </view>
   <view class="movies-template">
-     <o-movie-list category-title="Top250" />
+     <o-movie-list movies={{top250Movies}} category-title="Top250" />
   </view>
 </view>
