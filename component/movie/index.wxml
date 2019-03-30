@@ -1,4 +1,4 @@
-<view class="movie-container">
+<view catch:tap="onTap" class="movie-container">
   <image class="movie-img" src="{{coverageUrl}}"></image>
   <text class="movie-title">{{title}}</text>
   <o-stars stars="{{stars}}" score="{{score}}" />

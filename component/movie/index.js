@@ -3,7 +3,8 @@ Component({
     score:Number,
     stars:String,
     coverageUrl:String,
-    title:String
+    title:String,
+    movieId:String
   },
 
   data: {
@@ -11,6 +12,10 @@ Component({
   },
 
   methods: {
-    
+    onTap: function (event) {
+      wx.navigateTo({
+        url: '/pages/movie/movie-detail/movie-detail?id=' + this.properties.movieId,
+      })
+    }
   }
 })

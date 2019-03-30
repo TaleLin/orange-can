@@ -9,7 +9,7 @@
     </view>
     <view class="movies-container">
       <block wx:for="{{movies}}">
-        <o-movie score="{{item.score}}" stars="{{item.stars}}" coverage-url="{{item.coverageUrl}}" title="{{item.title}}" />
+        <o-movie movie-id="{{item.movieId}}" score="{{item.score}}" stars="{{item.stars}}" coverage-url="{{item.coverageUrl}}" title="{{item.title}}" />
       </block>
     </view>
   </view>

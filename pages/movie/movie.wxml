@@ -1,3 +1,9 @@
+<view class="search">
+  <icon type="search" class="search-img" size="13" color="#405f80"></icon>
+  <input type="text" placeholder="星际穿越" placeholder-class="placeholder" bindfocus="onBindFocus" bindconfirm="onBindConfirm" value="{{inputValue}}" />
+  <image wx:if="{{searchPanelShow}}" src="/images/icon/wx_app_xx.png" class="xx-img" catchtap="onCancelImgTap"></image>
+</view>
+
 <view class="container">
   <view class="movies-template">
    <o-movie-list movies="{{inTheatreMovies}}" category-title="正在热映" />
@@ -7,5 +13,15 @@
   </view>
   <view class="movies-template">
      <o-movie-list movies="{{top250Movies}}" category-title="Top250" />
+  </view>
+</view>
+
+<view class="search-panel" wx:if="{{searchPanelShow}}">
+  <view class="grid-container">
+    <block wx:for="{{movies}}">
+      <view class="single-view-container">
+        <o-movie movie-id="{{item.movieId}}" score="{{item.score}}" stars="{{item.stars}}" coverage-url="{{item.coverageUrl}}" title="{{item.title}}" />
+      </view>
+    </block>
   </view>
 </view>

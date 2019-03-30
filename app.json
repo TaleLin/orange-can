@@ -5,7 +5,9 @@
     "pages/post/post-detail/post-detail",
     "pages/post/post-comment/post-comment",
     "pages/movie/movie",
-    "pages/setting/setting"
+    "pages/setting/setting",
+    "pages/movie/movie-detail/movie-detail",
+    "pages/movie/more-movie/more-movie"
   ],
   "window": {
     "navigationBarBackgroundColor": "#4A6141"
@@ -37,7 +39,7 @@
       }
     ]
   },
-  "usingComponents":{
-    "o-stars":"/component/stars/index"
+  "usingComponents": {
+    "o-stars": "/component/stars/index"
   }
 }

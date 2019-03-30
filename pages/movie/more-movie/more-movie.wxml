@@ -1,0 +1,7 @@
+<view class="grid-container">
+  <block wx:for="{{movies}}">
+    <view class="single-view-container">
+         <o-movie movie-id="{{item.movieId}}" score="{{item.score}}" stars="{{item.stars}}" coverage-url="{{item.coverageUrl}}" title="{{item.title}}" />
+    </view>
+  </block>
+</view>
