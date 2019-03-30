@@ -12,12 +12,12 @@ Page({
   onLoad: function() {
     var app = getApp()
     var params = '?start=0&count=3'
-    var url = app.baseUrl + 'v2/movie/top250' + params
-    http(url, this.processTop250Data)
-    var url = app.baseUrl + 'v2/movie/theaters' + params
-    http(url, this.processInTheaterData)
-    var url = app.baseUrl + 'v2/movie/comingsoon' + params
-    http(url, this.processComingSoonData)
+    var top250Url = app.baseUrl + 'v2/movie/top250' + params
+    var inTheaterUrl = app.baseUrl + 'v2/movie/in_theaters' + params
+    var comingSoonUrl = app.baseUrl + 'v2/movie/coming_soon' + params
+    http(comingSoonUrl, this.processComingSoonData)
+    http(top250Url, this.processTop250Data)
+    http(inTheaterUrl, this.processInTheaterData)
   },
 
   processTop250Data: function(data) {
