@@ -125,5 +125,6 @@ function http(url, callback) {
 
 export {
   getDiffTime,
-  http
+  http,
+  processServerMovies
 }
