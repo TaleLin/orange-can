@@ -1,10 +1,11 @@
 Component({
   properties: {
-    catetoryTitle:String
+    catetoryTitle:String,
+    movies:Array
   },
 
   data: {
-    movies:[]
+
   },
 
   methods: {
