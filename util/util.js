@@ -87,6 +87,43 @@ function getDiffTime(recordTime,yearsFlag) {
     };
 })()
 
+function processServerMovies(data) {
+  var movies = [];
+
+  for (var idx in data.subjects) {
+    var subject = data.subjects[idx];
+    var title = subject.title;
+    if (title.length >= 6) {
+      title = title.substring(0, 6) + "...";
+    }
+
+    var temp = {
+      stars: subject.rating.stars,
+      title: title,
+      score: subject.rating.average,
+      coverageUrl: subject.images.large,
+      movieId: subject.id
+    }
+    movies.push(temp)
+  }
+  return movies
+}
+
+function http(url, callback) {
+  var app = getApp()
+  wx.request({
+    url: url,
+    header: {
+      appKey: app.appKey
+    },
+    success: (res) => {
+      callback(res.data)
+    }
+  })
+}
+
+
 export {
-  getDiffTime
+  getDiffTime,
+  http
 }
