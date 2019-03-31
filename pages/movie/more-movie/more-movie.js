@@ -14,6 +14,7 @@ Page({
 
   onLoad: function(options) {
     var category = options.category
+    this.data.navigateTitle = category;
     var url = app.baseUrl
     switch (category) {
       case '即将上映':
@@ -29,6 +30,12 @@ Page({
     this.data.currentUrl = url
 
     http(url, this.processMoreMovieData)
+  },
+
+  onReady: function () {
+    wx.setNavigationBarTitle({
+      title: this.data.navigateTitle
+    });
   },
 
   processMoreMovieData: function(data) {
