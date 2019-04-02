@@ -1,66 +1,49 @@
-// pages/setting/setting.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    userInfo: {},
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  getMyInfo: function(event) {
+    console.log(event)
+    if (event.detail.userInfo) {
+      this.setData({
+        userInfo: event.detail.userInfo,
+      })
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onLoad: function(options) {
+    this._authorize()
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  authorize: function() {
+    wx.getSetting({
+      success: (res) => {
+        if (res.authSetting['scope.userInfo']) {
+          this._authorize()
+        }
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  _authorize: function() {
+    // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+    wx.getUserInfo({
+      success: (res) => {
+        this.setData({
+          userInfo: res.userInfo,
+        })
+      },
+      fail:(error)=>{
+        console.log(error)
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onJumpToMask:function(event){
+    wx.navigateTo({
+      url: 'l-mask-demo/l-mask-demo',
+    })
   }
+
 })

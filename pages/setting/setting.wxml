@@ -1,0 +1,36 @@
+<view class="container">
+  <view class="category-item personal-info">
+    <view class="personal-sub">
+      <image class="avatar" src="{{userInfo.avatarUrl}}" />
+      <view class="user-name">
+        <view class="user-nickname">
+          <text>{{userInfo.nickName}}</text>
+        </view>
+        <view class="user-locaiton">
+          <text>所在地：{{userInfo.city}}</text>
+        </view>
+      </view>
+    </view>
+
+    <l-button open-type="getUserInfo" bind:getuserinfo="getMyInfo" size="mini" l-class="ex-l-btn" plain='{{true}}'>点我</l-button>
+
+  </view>
+  <view class="setting-container">
+    <view class="category-item">
+      <l-list bind:lintap="onJumpToMask" title="Lin UI" image="/images/icon/lin_ui_logo.jpg" />
+    </view>
+    <view class="category-item">
+      <l-list title="系统信息" image="/images/icon/wx_app_cellphone.png" />
+      <l-list title="网络状态" image="/images/icon/wx_app_network.png" />
+    </view>
+  </view>
+</view>
+
+
+<!-- 
+    <l-list title="地图显示" image="/images/icon/wx_app_location.png" />
+      <l-list title="指南针" image="/images/icon/wx_app_compass.png " />
+      <l-list title="当前位置、速度 " image="/images/icon/wx_app_lonlat.png " />
+      <l-list title="摇一摇 " image="/images/icon/wx_app_shake.png " />
+      <l-list title="二维码 " image="/images/icon/wx_app_scan_code.png " />
+    </view> -->

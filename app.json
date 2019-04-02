@@ -7,7 +7,9 @@
     "pages/movie/movie",
     "pages/setting/setting",
     "pages/movie/movie-detail/movie-detail",
-    "pages/movie/more-movie/more-movie"
+    "pages/movie/more-movie/more-movie",
+    "pages/setting/l-mask-demo/l-mask-demo",
+    "pages/setting/device/device"
   ],
   "window": {
     "navigationBarBackgroundColor": "#4A6141"

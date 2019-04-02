@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "l-mask": "/lin-ui/mask/index",
+      "l-button":"/lin-ui/button/index"
+  }
+}

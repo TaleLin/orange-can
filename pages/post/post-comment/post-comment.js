@@ -110,6 +110,7 @@ Page({
 
   //开始录音
   recordStart: function() {
+    console.log('recording')
     this.setData({
       recodingClass: 'recoding'
     });

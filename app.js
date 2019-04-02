@@ -9,5 +9,5 @@ App({
     }
   },
   baseUrl:'http://t.yushu.im/',
-  appKey:'123'
+  appKey:'test'
 })

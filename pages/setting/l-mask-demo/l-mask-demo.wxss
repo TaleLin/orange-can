@@ -1,0 +1,16 @@
+.badge{
+  width:550rpx;
+  height:700rpx;
+}
+
+.close{
+  margin-top:55rpx;
+  width:55rpx;
+  height:55rpx;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
