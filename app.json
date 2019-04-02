@@ -8,8 +8,7 @@
     "pages/setting/setting",
     "pages/movie/movie-detail/movie-detail",
     "pages/movie/more-movie/more-movie",
-    "pages/setting/l-mask-demo/l-mask-demo",
-    "pages/setting/device/device"
+    "pages/setting/l-mask-demo/l-mask-demo"
   ],
   "window": {
     "navigationBarBackgroundColor": "#4A6141"

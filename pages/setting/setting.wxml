@@ -12,7 +12,7 @@
       </view>
     </view>
 
-    <l-button open-type="getUserInfo" bind:getuserinfo="getMyInfo" size="mini" l-class="ex-l-btn" plain='{{true}}'>点我</l-button>
+    <l-button  size="mini" l-class="ex-l-btn" plain='{{true}}'>点我</l-button>
 
   </view>
   <view class="setting-container">

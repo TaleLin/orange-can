@@ -45,7 +45,3 @@
 .user-name{
   margin-left:50rpx;
 }
-
-.l-setting-btn{
-  border-color:#4A6141 !important;
-}

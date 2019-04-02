@@ -4,5 +4,3 @@
   <image bind:tap="onClose" class="close" src="/images/lin-ui/close.png" />
   </view>
  </l-mask>
-
- <l-button bind:opensetting="onGetSetting" open-type='openSetting' size="long">设置</l-button>
