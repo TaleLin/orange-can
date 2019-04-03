@@ -20,17 +20,20 @@
       <l-list bind:lintap="onJumpToMask" title="Lin UI" image="/images/icon/lin_ui_logo.jpg" />
     </view>
     <view class="category-item">
-      <l-list title="系统信息" image="/images/icon/wx_app_cellphone.png" />
-      <l-list title="网络状态" image="/images/icon/wx_app_network.png" />
+      <l-list bind:lintap="showSystemInfo" title="系统信息" image="/images/icon/wx_app_cellphone.png" />
+      <l-list bind:lintap="showNetWork" title="网络状态" image="/images/icon/wx_app_network.png" />
+       <l-list bind:lintap="showLonLat" title="当前位置、速度 " image="/images/icon/wx_app_lonlat.png " />
+       <l-list bind:lintap="scanQRCode" title="二维码 " image="/images/icon/wx_app_scan_code.png " />
     </view>
   </view>
 </view>
 
 
+
 <!-- 
     <l-list title="地图显示" image="/images/icon/wx_app_location.png" />
       <l-list title="指南针" image="/images/icon/wx_app_compass.png " />
-      <l-list title="当前位置、速度 " image="/images/icon/wx_app_lonlat.png " />
+     
       <l-list title="摇一摇 " image="/images/icon/wx_app_shake.png " />
-      <l-list title="二维码 " image="/images/icon/wx_app_scan_code.png " />
+      
     </view> -->
