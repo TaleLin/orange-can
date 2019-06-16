@@ -91,7 +91,6 @@ Page({
   },
 
   scanQRCode: function () {
-    var that = this;
     wx.scanCode({
       success: function (res) {
         console.log(res)
