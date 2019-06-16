@@ -22,8 +22,11 @@
     <view class="category-item">
       <l-list bind:lintap="showSystemInfo" title="系统信息" image="/images/icon/wx_app_cellphone.png" />
       <l-list bind:lintap="showNetWork" title="网络状态" image="/images/icon/wx_app_network.png" />
-       <l-list bind:lintap="showLonLat" title="当前位置、速度 " image="/images/icon/wx_app_lonlat.png " />
-       <l-list bind:lintap="scanQRCode" title="二维码 " image="/images/icon/wx_app_scan_code.png " />
+      <l-list bind:lintap="showLonLat" title="当前位置、速度 " image="/images/icon/wx_app_lonlat.png " />
+      <l-list bind:lintap="scanQRCode" title="二维码 " image="/images/icon/wx_app_scan_code.png " />
+    </view>
+    <view class="category-item">
+      <l-list bind:lintap="onUpLoadFile" title="云开发上传文件" image="/images/icon/wx_app_pdf.png" />
     </view>
   </view>
 </view>
