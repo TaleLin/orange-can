@@ -36,5 +36,6 @@
         "selectedIconPath": "images/icon/wx_app_setting@HL.png"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
