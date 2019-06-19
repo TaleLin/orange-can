@@ -1,20 +1,19 @@
 import {
   DBPost
-} from '../../data/db.js'
+} from '../../data/db-cloud.js'
 
 Page({
   data: {},
 
-  onLoad: function() {
-    var dbPost = new DBPost()
+  onLoad: async function() {
+    const posts = await DBPost.getAllPostData()
     this.setData({
-      postList: dbPost.getAllPostData()
+      postList: posts
     })
   },
 
   onTapToDetail(event) {
     var postId = event.currentTarget.dataset.postId
-    console.log(postId)
     wx.navigateTo({
       url: 'post-detail/post-detail?id=' + postId,
     })

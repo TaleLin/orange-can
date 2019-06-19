@@ -3,16 +3,27 @@
 	"packOptions": {
 		"ignore": []
 	},
+	"cloudfunctionRoot": "cloud-functions/",
 	"setting": {
 		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"nodeModules": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"enhance": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.4",
+	"libVersion": "2.7.1",
 	"appid": "wx83c70918786b8d5f",
 	"projectname": "Orange-Can",
 	"debugOptions": {
@@ -21,6 +32,7 @@
 	"scripts": {},
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -38,7 +50,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 1,
 			"list": [
 				{
 					"id": -1,
@@ -48,10 +60,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 1,
 					"name": "post-comment",
 					"pathName": "pages/post/post-comment/post-comment",
-					"query": "id=2",
+					"query": "id=5d06ae8d9087416d91142bca",
 					"scene": null
 				},
 				{
@@ -66,6 +78,13 @@
 					"name": "movie",
 					"pathName": "pages/movie/movie",
 					"query": "id=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "post",
+					"pathName": "pages/post/post",
+					"query": "",
 					"scene": null
 				}
 			]

@@ -10,11 +10,12 @@
   </view>
   <text class="detail">{{post.detail}}</text>
   <view class="tool">
-    <view class="tool-item comment" catchtap="onCommentTap" data-post-id="{{post.postId}}">
+    <view class="tool-item comment" catchtap="onCommentTap" data-post-id="{{post._id}}">
       <image src="/images/icon/wx_app_message.png"></image>
       <text>{{post.commentNum}}</text>
     </view>
-    <view class="tool-item" catchtap="onCollectionTap" data-post-id="{{post.postId}}">
+    <!-- Todo:修改id -->
+    <view class="tool-item" catchtap="onCollectionTap" data-post-id="{{post._id}}">
       <image wx:if="{{post.collectionStatus}}" src="/images/icon/wx_app_collected.png" />
       <image wx:else src="/images/icon/wx_app_collect.png" />
       <text>{{post.collectionNum}}</text>

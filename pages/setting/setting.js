@@ -13,7 +13,7 @@ Page({
   },
 
   onLoad: function(options) {
-    this._authorize()
+    this.authorize()
   },
 
   authorize: function() {

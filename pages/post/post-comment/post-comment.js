@@ -1,6 +1,11 @@
 import {
   DBPost
-} from '../../../data/db.js';
+} from '../../../data/db-cloud.js'
+
+import {
+  randomStr,
+  promisic
+} from '../../../util/util.js'
 
 Page({
   data: {
@@ -8,10 +13,10 @@ Page({
     showMediaFlag: false,
     choosedImgs: [],
   },
-  onLoad: function(options) {
+  async onLoad(options) {
     var postId = options.id;
     this.dbPost = new DBPost(postId);
-    var comments = this.dbPost.getCommentData()
+    var comments = await this.dbPost.getCommentData()
 
     this.initRecordMgr()
     this.initAudioMgr()
@@ -46,7 +51,8 @@ Page({
     var val = event.detail.value
     this.data.keyboardInputValue = val
   },
-  submitComment: function(event) {
+
+  async submitComment(event) {
     var newData = {
       username: "青石",
       avatar: "/images/avatar/avatar-3.png",
@@ -63,7 +69,7 @@ Page({
       return
     }
     //保存新评论到缓存数据库中
-    this.dbPost.newComment(newData)
+    await this.dbPost.newComment(newData)
     //显示操作结果
     this.showCommitSuccessToast()
     //重新渲染并绑定所有评论
@@ -81,8 +87,8 @@ Page({
     })
   },
 
-  bindCommentData: function() {
-    var comments = this.dbPost.getCommentData();
+  async bindCommentData() {
+    const comments = await this.dbPost.getCommentData();
     // 绑定评论数据
     this.setData({
       comments: comments
@@ -104,8 +110,9 @@ Page({
     })
   },
 
-  getAllImgs: function(event) {
-    this.data.choosedImgs = event.detail.all
+  async getAllImgs(event) {
+    const imgIds = await this.dbPost.uploadImgsToCloud(event.detail.all, 'comment')
+    this.data.choosedImgs = imgIds
   },
 
   //开始录音
@@ -149,7 +156,10 @@ Page({
   },
 
   //提交录音 
-  submitVoiceComment: function(audio) {
+  async submitVoiceComment(audio) {
+    console.log(audio)
+    const cloudId = await this.dbPost.uploadAudioToCloud(audio.url,'comment')
+    audio.url = cloudId
     var newData = {
       username: "青石",
       avatar: "/images/avatar/avatar-3.png",
@@ -161,8 +171,8 @@ Page({
       },
     };
 
-    //保存新评论到缓存数据库中
-    this.dbPost.newComment(newData)
+    //保存新评论添加到云端
+    await this.dbPost.newComment(newData)
 
     //显示操作结果
     this.showCommitSuccessToast()
@@ -195,7 +205,6 @@ Page({
 
   playAudio: function(event) {
     var url = event.currentTarget.dataset.url
-
     // 如果正在播放
     if (this.playing) {
       if (url == this.aMgr.src) {
