@@ -12,7 +12,7 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.4",
+	"libVersion": "2.7.1",
 	"appid": "wx83c70918786b8d5f",
 	"projectname": "Orange-Can",
 	"debugOptions": {
