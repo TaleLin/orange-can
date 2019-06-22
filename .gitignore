@@ -15,5 +15,5 @@ node_modules/
 
 project.config.json
 package-lock.json
-package.json
-miniprogram_npm
+# package.json
+# miniprogram_npm

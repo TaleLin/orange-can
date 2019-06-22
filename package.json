@@ -1,0 +1,26 @@
+{
+  "name": "orange-can",
+  "version": "2.0.0",
+  "description": "http://www.7yue.pro",
+  "main": "app.js",
+  "dependencies": {
+    "lin-ui": "^0.5.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TaleLin/orange-can.git"
+  },
+  "keywords": [
+    "http://www.7yue.pro"
+  ],
+  "author": "7yue",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TaleLin/orange-can/issues"
+  },
+  "homepage": "http: //www.7yue.pro"
+}
