@@ -174,6 +174,7 @@ Page({
   initAudioMgr: function() {
     // 初始化录音管理器
     var aMgr = wx.createInnerAudioContext()
+    aMgr.autoplay = true
     this.aMgr = aMgr
     this.playing = false
 
@@ -205,7 +206,6 @@ Page({
         // 如果url不同则说明用户点了另外的音频
         // 需要立即播放新音频
         this.aMgr.src = url
-        this.aMgr.play()
       }
     }
 
@@ -213,7 +213,6 @@ Page({
     else {
       console.log(url)
       this.aMgr.src = url
-      this.aMgr.play()
     }
   }
 
