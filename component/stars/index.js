@@ -7,12 +7,22 @@ Component({
     }
   },
 
-  attached:function(){
-    var starsArray = this.convertToStarsArray(this.properties.stars)
-    this.setData({
-      _stars:starsArray
-    })
+
+  observers: {
+    "stars": function (stars) {
+      var starsArray = this.convertToStarsArray(stars)
+      this.setData({
+        _stars: starsArray
+      })
+    }
   },
+
+  // attached:function(){
+  //   var starsArray = this.convertToStarsArray(this.properties.stars)
+  //   this.setData({
+  //     _stars:starsArray
+  //   })
+  // },
 
   data: {
     _stars:"00",
