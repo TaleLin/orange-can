@@ -32,6 +32,14 @@ exports.main = async(event, context) => {
           }
         })
       break
+    case 'comment':
+      return db.collection('post').doc(event.id)
+        .update({
+          data:{
+            commentNum:_.inc(1)
+          }
+        })
+      break
   }
   // const wxContext = cloud.getWXContext()
 

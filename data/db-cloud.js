@@ -24,27 +24,27 @@ class DBPost {
     .add({
       data:comment
     })
+    this.addCommentNum()
   }
 
-  // 保存或者更新缓存数据
-  execSetStorageSync(data) {
-    wx.setStorageSync(this.storageKeyName, data);
-  }
 
   async collect() {
     const status = await this.getUserStatus()
-    console.log(status)
-    if (!status) {
+    // console.log(status)
+
+    //如果用户状态表未创建
+    if (status===null) {
       this.db.collection('user_post')
         .add({
           data: {
             postId: this.id,
-            collectionStatus: false,
+            collectionStatus: true,
           }
         })
       this.addCollectionNum()
     } else {
       const _collectionStatus = status.collectionStatus
+      console.log(_collectionStatus)
       this.db.collection('user_post').doc(status._id)
         .update({
           data: {
@@ -61,7 +61,7 @@ class DBPost {
     }
   }
 
-  async addCollectionNum() {
+  addCollectionNum() {
     wx.cloud.callFunction({
       name: 'updatePostData',
       data: {
@@ -71,7 +71,7 @@ class DBPost {
     })
   }
 
-  async subtractCollectionNum() {
+  subtractCollectionNum() {
     wx.cloud.callFunction({
       name: 'updatePostData',
       data: {
@@ -93,32 +93,7 @@ class DBPost {
       return res.data[0]
     }
   }
-
-  async updatePostData(category, comment) {
-    switch (category) {
-      case 'collect':
-        //处理收藏
-        if (!postData.collectionStatus) {
-          //如果当前状态是未收藏
-          postData.collectionNum++;
-          postData.collectionStatus = true;
-        } else {
-          // 如果当前状态是收藏
-          postData.collectionNum--;
-          postData.collectionStatus = false;
-        }
-        break;
-      case 'comment':
-        postData.comments.push(comment);
-        postData.commentNum++;
-        break;
-      case 'reading':
-
-        break;
-      default:
-        break;
-    }
-  }
+  
 
   async uploadImgsToCloud(imgs, folderName){
     let cloudIds = []
@@ -128,21 +103,23 @@ class DBPost {
       })
 
       const imgName = randomStr(36)
-      const fullCloudPath = './'+folderName+'/' + imgName + '.' + info.type
+      const fullCloudPath = folderName+'/' + imgName + '.' + info.type
       // const format = 
-      console.log(fullCloudPath)
+     
       const res = await wx.cloud.uploadFile({
         cloudPath: fullCloudPath,
         filePath: img
       })
       cloudIds.push(res.fileID)
     }
+    console.log(cloudIds)
     return cloudIds
   }
 
   async uploadAudioToCloud(audio, folderName){
     const audioName = randomStr(36)
-    const fullCloudPath = './' + folderName + '/' + audioName + '.aac'
+    const format = audio.split('.').pop()
+    const fullCloudPath = folderName + '/' + audioName +'.'+format
     const res = await wx.cloud.uploadFile({
       cloudPath: fullCloudPath,
       filePath: audio
@@ -154,22 +131,26 @@ class DBPost {
 
   //获取指定id号的文章数据
   async getPostItemById() {
+    // 获取post实体
     const resPost = await this.db.collection('post')
       .doc(this.id)
       .get()
     const post = resPost.data
     const _postId = post._id
+
+    // 获取用户对于当前post的状态
     const status = await this.getUserStatus()
     if (!status) {
       post.collectionStatus = false
     } else {
       post.collectionStatus = status.collectionStatus
     }
+
     return post
   }
 
   async getCommentData() {
-    var post = this.getPostItemById()
+    // var post = this.getPostItemById()
     const res = await this.db.collection('comment')
       .where({
         postId:this.id
@@ -207,6 +188,18 @@ class DBPost {
         id: this.id,
         category: 'reading'
       }
+    })
+  }
+
+  addCommentNum() {
+    wx.cloud.callFunction({
+      name:'updatePostData',
+      data:{
+        id:this.id,
+        category:'comment'
+      }
+    }).then(res=>{
+      console.log(res)
     })
   }
 
