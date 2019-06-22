@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "o-stars": "/component/stars/index"
+  }
 }
